@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, RefObject } from 'react';
 import TodoList from './component/TodoList';
 
 
@@ -67,13 +67,25 @@ By following these steps, you will be able to utilize props in React with TypeSc
   */
  
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
+  const todoNameRef = useRef<HTMLInputElement | null>(null);
+
+
+
+  function handleAddTodo(){
+    const name = todoNameRef.current?.value
+    if(!name) return;
+    setTodos([{id: 232, title: name, completed: false}])
+    todoNameRef.current!.value = '';
+
+
+  }
 
 
   return (
     <>
         <TodoList todos = {todos}/>
-        <input type='text'/>
-        <button>Add Todo</button>
+        <input ref = {todoNameRef} type='text'/>
+        <button onClick={handleAddTodo}>Add Todo</button>
         <button>Clear Complete</button>
         <text>0 Todo Left</text>
     </>

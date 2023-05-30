@@ -8,7 +8,7 @@
 This is a test project for Typescript use with Reactjs. The following are the base features that are to be tested;
 - Props √
 - Functions √
-- Events 
+- Events (References and more) √ - NEEDS MORE PRACTICE
 - Asynchronous events
 - Interfaces
 - Hooks
